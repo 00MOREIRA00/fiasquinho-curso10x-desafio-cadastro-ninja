@@ -1,15 +1,18 @@
 # fiasquinho-curso10x-desafio-cadastro-ninja
 
-Crie um programa em Java para gerenciar informações de ninjas utilizando herança. Desenvolva uma classe base chamada Ninja e uma subclasse chamada Uchiha.
+## Descrição
 
-1. Na classe Ninja, defina os atributos nome (String), idade (int), missao (String), nivelDificuldade (String) e statusMissao (String). Adicione um método chamado mostrarInformacoes() que exibe todos esses atributos.
+Este projeto é um sistema de gerenciamento de ninjas desenvolvido em Java, utilizando conceitos de herança. Ele permite cadastrar ninjas da classe base `Ninja` e da subclasse `Uchiha`, com funcionalidades para exibir informações, adicionar novos ninjas e atualizar habilidades especiais através de um menu interativo.
 
-2. Crie uma subclasse chamada Uchiha que herda de Ninja. Adicione um atributo adicional habilidadeEspecial (String) e um método chamado mostrarHabilidadeEspecial() para exibir a habilidade especial do ninja.
+## Como Executar
 
-3. Sobrescreva o método mostrarInformacoes() na classe Uchiha para incluir também a habilidade especial.
-
----
-
-### QUER MAIS DIFICULDADE?
-
-* Como desafio adicional, implemente um menu interativo utilizando a classe Scanner para permitir ao usuário escolher entre diferentes opções, como exibir informações de todos os ninjas, adicionar novos ninjas ou atualizar as habilidades especiais. Isso ajudará a praticar o uso de entrada do usuário e controle de fluxo no programa.
+1. Certifique-se de ter o Java JDK instalado (versão 8 ou superior).
+2. Navegue até a pasta raiz do projeto.
+3. Compile os arquivos Java:
+   ```
+   javac src/*.java
+   ```
+4. Execute o programa:
+   ```
+   java -cp src Main
+   ```
