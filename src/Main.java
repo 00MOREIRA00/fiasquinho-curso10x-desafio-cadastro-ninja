@@ -43,6 +43,11 @@ public class Main {
 
                 case 3:
                     System.out.println("Você selecionou a opção 3: Remover um ninja");
+                    System.out.println("--------------------------------------------");
+                    System.out.println("Digite o número do ninja que deseja remover:");
+                    sc.nextLine();
+                    int numeroNinja = sc.nextInt();
+                    ninjas.remove(numeroNinja - 1);
                     break;
 
                 case 4:
