@@ -48,10 +48,20 @@ public class Main {
                     sc.nextLine();
                     int numeroNinja = sc.nextInt();
                     ninjas.remove(numeroNinja - 1);
+                    System.out.println("Ninja removido com sucesso!");
                     break;
 
                 case 4:
                     System.out.println("Você selecionou a opção 4: Atualizar habilidades especiais de um");
+                    System.out.println("--------------------------------------------");
+                    System.out.println("Digite o número do ninja que deseja atualizar as habilidades especiais:");
+                    sc.nextLine();
+                    int numeroNinjaAtualizar = sc.nextInt();
+                    System.out.println("Digite o novo nome do ninja:");
+                    sc.nextLine();
+                    String novasHabilidades = sc.nextLine();
+                    ninjas.set(numeroNinjaAtualizar - 1, novasHabilidades);
+                    System.out.println("Ninja atualizado com sucesso!");
                     break;
 
                 case 5:
