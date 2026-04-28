@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<String> ninjas = new ArrayList<>();
+        ArrayList<Ninja> ninjas = new ArrayList<>();
 
         System.out.println("Bem-vindo ao Sistema de Gerenciamento de Ninjas!");
         int execucao = 1;
@@ -18,6 +18,7 @@ public class Main {
             System.out.println("5. Sair");
 
             Scanner sc = new Scanner(System.in);
+            System.out.println();
             int opcao = sc.nextInt();
 
             switch (opcao) {
@@ -35,10 +36,28 @@ public class Main {
 
                 case 2:
                     System.out.println("Você selecionou a opção 2: Adicionar um novo ninja");
+                    System.out.println("--------------------------------------------");
                     System.out.println("Digite o nome do ninja:");
                     sc.nextLine();
                     String nomeNinja = sc.nextLine();
-                    ninjas.add(nomeNinja);
+
+                    System.out.println("Digite a idade do ninja:");
+                    int idadeNinja = sc.nextInt();
+
+                    System.out.println("Digite a missão do ninja:");
+                    sc.nextLine();
+                    String missaoNinja = sc.nextLine();
+
+                    System.out.println("Digite o nível de dificuldade da missão:");
+                    String nivelDificuldadeNinja = sc.nextLine();
+
+                    System.out.println("Digite o status da missão do ninja:");
+                    String statusMissaoNinja = sc.nextLine();
+
+                    Ninja ninja = new Ninja(nomeNinja, idadeNinja, missaoNinja, nivelDificuldadeNinja, statusMissaoNinja);
+
+                    ninjas.add(ninja);
+                    System.out.println("Ninja adicionado com sucesso!");
                     break;
 
                 case 3:
@@ -60,7 +79,7 @@ public class Main {
                     System.out.println("Digite o novo nome do ninja:");
                     sc.nextLine();
                     String novasHabilidades = sc.nextLine();
-                    ninjas.set(numeroNinjaAtualizar - 1, novasHabilidades);
+                    //ninjas.set(numeroNinjaAtualizar - 1, novasHabilidades);
                     System.out.println("Ninja atualizado com sucesso!");
                     break;
 
@@ -76,10 +95,3 @@ public class Main {
 
     }
 }
-
-
-// [OK] - Menu Interativo
-// [OK] - Exibir informações de todos os ninjas
-// [OK] - Adicionar novos ninjas
-// [OK] - Remover Ninjas
-// [OK] - Atualizar habilidades Especiais

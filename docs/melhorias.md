@@ -8,4 +8,12 @@ Esse documento tem como objetivo listar as melhorias que podem ser feitas no pro
 ## Melhoriias 
 - [ ] Adicionar testes unitários para garantir a qualidade do código.
 - [ ] Refatorar o código para melhorar a legibilidade e manutenção.
-- [ ] Melhorar espaçamento entre impressão dos elementos para facilitar melhor visualização. 
+- [ ] Melhorar espaçamento entre impressão dos elementos para facilitar melhor visualização.
+
+
+
+
+
+
+
+- Opção de adicionar clans especificos
