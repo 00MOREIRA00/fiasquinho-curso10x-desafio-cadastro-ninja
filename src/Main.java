@@ -79,7 +79,7 @@ public class Main {
 
 
 // [OK] - Menu Interativo
-// [] - Exisbir informações de todos os ninjas
-// [] - Adicionar novos ninjas
-// [] - Remover Ninjas
-// [] - Atualizar habilidades Especiais
+// [OK] - Exibir informações de todos os ninjas
+// [OK] - Adicionar novos ninjas
+// [OK] - Remover Ninjas
+// [OK] - Atualizar habilidades Especiais
