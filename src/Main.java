@@ -29,7 +29,8 @@ public class Main {
                     }
 
                     for (int i = 0; i < ninjas.size(); i++) {
-                        System.out.println("Ninja " + (i + 1) + ": " + ninjas.get(i));
+                        System.out.println("\n--- Ninja " + (i + 1) + " ---");
+                        ninjas.get(i).mostrarInformacoes();
                     }
 
                     break;
