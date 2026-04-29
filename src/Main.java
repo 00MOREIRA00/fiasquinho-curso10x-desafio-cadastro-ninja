@@ -20,6 +20,7 @@ public class Main {
             Scanner sc = new Scanner(System.in);
             System.out.println();
             int opcao = sc.nextInt();
+            sc.nextLine();
 
             switch (opcao) {
                 case 1:
@@ -38,22 +39,71 @@ public class Main {
                 case 2:
                     System.out.println("Você selecionou a opção 2: Adicionar um novo ninja");
                     System.out.println("--------------------------------------------");
-                    System.out.println("Digite o nome do ninja:");
-                    sc.nextLine();
-                    String nomeNinja = sc.nextLine();
 
-                    System.out.println("Digite a idade do ninja:");
-                    int idadeNinja = sc.nextInt();
+                    String nomeNinja = "";
+                    while (nomeNinja.trim().isEmpty()) {
+                        System.out.println("Digite o nome do ninja (não pode ser vazio):");
+                        nomeNinja = sc.nextLine();
+                        if (!nomeNinja.trim().isEmpty()) {
+                            break;
+                        }
 
-                    System.out.println("Digite a missão do ninja:");
-                    sc.nextLine();
-                    String missaoNinja = sc.nextLine();
+                        System.out.println("❌ Erro: O nome do ninja não pode ser vazio. Por favor, tente novamente.");
+                    }
 
-                    System.out.println("Digite o nível de dificuldade da missão:");
-                    String nivelDificuldadeNinja = sc.nextLine();
+                    int idadeNinja = 0;
+                    boolean isValidaIdade = false;
 
-                    System.out.println("Digite o status da missão do ninja:");
-                    String statusMissaoNinja = sc.nextLine();
+                    while (!isValidaIdade) {
+                        System.out.println("Digite a idade do ninja:");
+                        try {
+                            idadeNinja = sc.nextInt();
+                            if (idadeNinja > 0 && idadeNinja <= 150) {
+                                isValidaIdade = true;
+                                sc.nextLine();
+                            } else {
+                                System.out.println("❌ Erro: A idade deve estar entre 1 e 150 anos!");
+                            }
+                        } catch (Exception e) {
+                            System.out.println("❌ Erro: Digite um número válido para a idade!");
+                            sc.nextLine();
+                        }
+                    }
+
+                    String missaoNinja;
+                    while(true){
+                        System.out.println("Digite a missão do ninja:");
+                        missaoNinja = sc.nextLine();
+
+                        if (!missaoNinja.trim().isEmpty()) {
+                            break;
+                        }
+
+                        System.out.println("❌ Erro: A missão do ninja não pode ser vazia. Por favor, tente novamente.");
+                    }
+
+                    String nivelDificuldadeNinja = "";
+                    while (nivelDificuldadeNinja.trim().isEmpty()) {
+                        System.out.println("Digite o nível de dificuldade da missão:");
+                        nivelDificuldadeNinja = sc.nextLine();
+
+                        if (!nivelDificuldadeNinja.trim().isEmpty()) {
+                            break;
+                        }
+
+                        System.out.println("❌ Erro: O nível de dificuldade não pode ser vazio! Tente novamente.");
+                    }
+
+                    String statusMissaoNinja = "";
+                    while (statusMissaoNinja.trim().isEmpty()) {
+                        System.out.println("Digite o status da missão do ninja:");
+                        statusMissaoNinja = sc.nextLine();
+                        if (!statusMissaoNinja.trim().isEmpty()) {
+                            break;
+                        }
+
+                        System.out.println("❌ Erro: O status da missão não pode ser vazio! Tente novamente.");
+                    }
 
                     Ninja ninja = new Ninja(nomeNinja, idadeNinja, missaoNinja, nivelDificuldadeNinja, statusMissaoNinja);
 
@@ -64,9 +114,25 @@ public class Main {
                 case 3:
                     System.out.println("Você selecionou a opção 3: Remover um ninja");
                     System.out.println("--------------------------------------------");
+
+                    if (ninjas.isEmpty()) {
+                        System.out.println("Nenhum ninja cadastrado para remover!");
+                        break;
+                    }
+
+                    for (int i = 0; i < ninjas.size(); i++){
+                        System.out.println((i + 1) + ". " + ninjas.get(i).nome);
+                    }
+
                     System.out.println("Digite o número do ninja que deseja remover:");
                     sc.nextLine();
                     int numeroNinja = sc.nextInt();
+
+                    if (numeroNinja < 1 || numeroNinja > ninjas.size()) {
+                        System.out.println("Número inválido!");
+                        break;
+                    }
+
                     ninjas.remove(numeroNinja - 1);
                     System.out.println("Ninja removido com sucesso!");
                     break;
