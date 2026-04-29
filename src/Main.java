@@ -138,15 +138,55 @@ public class Main {
                     break;
 
                 case 4:
-                    System.out.println("Você selecionou a opção 4: Atualizar habilidades especiais de um");
+                    System.out.println("Você selecionou a opção 4: Atualizar ninja");
                     System.out.println("--------------------------------------------");
-                    System.out.println("Digite o número do ninja que deseja atualizar as habilidades especiais:");
+
+                    if (ninjas.isEmpty()) {
+                        System.out.println("Nenhum ninja cadastrado para atualizar!");
+                        break;
+                    }
+
+                    for (int i = 0; i < ninjas.size(); i++) {
+                        System.out.println((i + 1) + " - " + ninjas.get(i).nome);
+                    }
+
+                    System.out.println("Digite o número do ninja que deseja atualizar:");
+                    int opcaoNinja = sc.nextInt();
                     sc.nextLine();
-                    int numeroNinjaAtualizar = sc.nextInt();
-                    System.out.println("Digite o novo nome do ninja:");
+
+                    int indice = opcaoNinja - 1;
+
+                    if (indice < 0 || indice >= ninjas.size()) {
+                        System.out.println("Número inválido!");
+                        break;
+                    }
+
+                    System.out.println("Digite o novo nome:");
+                    String nome = sc.nextLine();
+
+                    System.out.println("Digite a nova idade:");
+                    int idade = sc.nextInt();
                     sc.nextLine();
-                    String novasHabilidades = sc.nextLine();
-                    //ninjas.set(numeroNinjaAtualizar - 1, novasHabilidades);
+
+                    System.out.println("Digite a nova missão:");
+                    String missao = sc.nextLine();
+
+                    System.out.println("Digite o novo nível de dificuldade:");
+                    String nivelDificuldade = sc.nextLine();
+
+                    System.out.println("Digite o novo status da missão:");
+                    String statusMissao = sc.nextLine();
+
+                    Ninja ninjaNovo = new Ninja(
+                            nome,
+                            idade,
+                            missao,
+                            nivelDificuldade,
+                            statusMissao
+                    );
+
+                    ninjas.set(indice, ninjaNovo);
+
                     System.out.println("Ninja atualizado com sucesso!");
                     break;
 
