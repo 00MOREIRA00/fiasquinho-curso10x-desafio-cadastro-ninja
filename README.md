@@ -7,7 +7,9 @@ Este projeto é um sistema de gerenciamento de ninjas desenvolvido em Java, util
 ## Como Executar
 
 1. Certifique-se de ter o Java JDK instalado (versão 8 ou superior).
+
 2. Navegue até a pasta raiz do projeto.
+
 3. Compile os arquivos Java:
    ```
    javac src/*.java
