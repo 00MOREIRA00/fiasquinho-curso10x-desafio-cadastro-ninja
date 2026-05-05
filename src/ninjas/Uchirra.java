@@ -1,19 +1,16 @@
 package ninjas;
-import src.Ninja;
 
 public class Uchirra extends Ninja {
-    String habilidadeEspecial;
+    private String habilidadeEspecial;
 
-    Uchirra(String nome, int idade, String missao, String nivelDificuldade, String statusMissao) {
+    public Uchirra(String nome, int idade, String missao, String nivelDificuldade, String statusMissao, String habilidadeEspecial) {
         super(nome, idade, missao, nivelDificuldade, statusMissao);
+        this.habilidadeEspecial = habilidadeEspecial;
     }
 
-    public void mostrarInformacoes(){
+    @Override
+    public void mostrarInformacoes() {
         super.mostrarInformacoes();
-        mostrarHabilidadeEspecial();
-    }
-
-    public void mostrarHabilidadeEspecial(){
         System.out.println("Habilidade Especial: " + habilidadeEspecial);
     }
 }
