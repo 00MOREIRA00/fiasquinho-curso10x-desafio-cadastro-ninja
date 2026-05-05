@@ -1,6 +1,7 @@
 package ninjas;
 
 public class Uchirra extends Ninja {
+
     private String habilidadeEspecial;
 
     public Uchirra(String nome, int idade, String missao, String nivelDificuldade, String statusMissao, String habilidadeEspecial) {
@@ -9,15 +10,16 @@ public class Uchirra extends Ninja {
     }
 
     @Override
-    public void mostrarInformacoes() {
-        super.mostrarInformacoes();
-        System.out.println("Habilidade Especial: " + habilidadeEspecial);
+    public String getTipoCla() {
+        return "Uchirra";
     }
 
+    @Override
     public String getHabilidadeEspecial() {
         return habilidadeEspecial;
     }
 
+    @Override
     public void setHabilidadeEspecial(String habilidadeEspecial) {
         this.habilidadeEspecial = habilidadeEspecial;
     }

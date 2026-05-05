@@ -17,7 +17,7 @@ public class Ninja {
     }
 
     public String getTipoCla() {
-        return "Comum";
+        return "Nenhum";
     }
 
     public String getHabilidadeEspecial() {
