@@ -41,4 +41,24 @@ public class Ninja {
     public String getNome() {
         return nome;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public void setMissao(String missao) {
+        this.missao = missao;
+    }
+
+    public void setNivelDificuldade(String nivelDificuldade) {
+        this.nivelDificuldade = nivelDificuldade;
+    }
+
+    public void setStatusMissao(String statusMissao) {
+        this.statusMissao = statusMissao;
+    }
 }
