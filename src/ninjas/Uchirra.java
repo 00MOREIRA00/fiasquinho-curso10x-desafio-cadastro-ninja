@@ -1,4 +1,7 @@
-public class Uchirra extends Ninja{
+package ninjas;
+import src.Ninja;
+
+public class Uchirra extends Ninja {
     String habilidadeEspecial;
 
     Uchirra(String nome, int idade, String missao, String nivelDificuldade, String statusMissao) {

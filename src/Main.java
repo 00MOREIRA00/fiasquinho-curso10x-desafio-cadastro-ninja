@@ -2,113 +2,85 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
 
+    // ══════════════════════════════════════════════════════════════════
+    // Para adicionar um novo clã:
+    // 1. Crie a subclasse (ex: class Senju extends Ninja)
+    // 2. Adicione uma entrada em CLA_NOMES abaixo
+    // 3. Trate o novo case no método criarNinjaEspecial()
+    // ══════════════════════════════════════════════════════════════════
+
+    static final String[] CLA_NOMES = {
+            "Ninja Comum",  // índice 0 — sem habilidade especial
+            "Uchiha",       // índice 1
+            "Hyuga"         // índice 2
+            // Adicione novos clãs aqui ↑
+    };
+
+    public static void main(String[] args) {
         ArrayList<Ninja> ninjas = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("Bem-vindo ao Sistema de Gerenciamento de Ninjas!");
-        int execucao = 1;
 
-        while(execucao == 1) {
-            System.out.println("Selecione uma opção:");
+        int execucao = 1;
+        while (execucao == 1) {
+            System.out.println("\nSelecione uma opção:");
             System.out.println("1. Exibir informações de todos os ninjas");
             System.out.println("2. Adicionar um novo ninja");
             System.out.println("3. Remover um ninja");
-            System.out.println("4. Atualizar habilidades especiais de um ninja");
+            System.out.println("4. Atualizar habilidade especial de um ninja de clã");
             System.out.println("5. Sair");
-
-            Scanner sc = new Scanner(System.in);
             System.out.println();
-            int opcao = sc.nextInt();
+
+            int opcao = lerInteiro(sc);
             sc.nextLine();
 
             switch (opcao) {
                 case 1:
                     System.out.println("Você selecionou a opção 1: Exibir informações de todos os ninjas");
-                    if (ninjas.isEmpty()){
-                        System.out.println("Nenhum ninja cadastrado !!");
+                    if (ninjas.isEmpty()) {
+                        System.out.println("Nenhum ninja cadastrado!");
+                        break;
                     }
-
                     for (int i = 0; i < ninjas.size(); i++) {
                         System.out.println("\n--- Ninja " + (i + 1) + " ---");
                         ninjas.get(i).mostrarInformacoes();
                     }
-
                     break;
 
                 case 2:
                     System.out.println("Você selecionou a opção 2: Adicionar um novo ninja");
                     System.out.println("--------------------------------------------");
 
-                    String nomeNinja = "";
-                    while (nomeNinja.trim().isEmpty()) {
-                        System.out.println("Digite o nome do ninja (não pode ser vazio):");
-                        nomeNinja = sc.nextLine();
-                        if (!nomeNinja.trim().isEmpty()) {
-                            break;
-                        }
-
-                        System.out.println("❌ Erro: O nome do ninja não pode ser vazio. Por favor, tente novamente.");
+                    System.out.println("Selecione o clã do ninja:");
+                    for (int i = 0; i < CLA_NOMES.length; i++) {
+                        System.out.println(i + ". " + CLA_NOMES[i]);
                     }
 
-                    int idadeNinja = 0;
-                    boolean isValidaIdade = false;
+                    int tipoCla = lerInteiro(sc);
+                    sc.nextLine();
 
-                    while (!isValidaIdade) {
-                        System.out.println("Digite a idade do ninja:");
-                        try {
-                            idadeNinja = sc.nextInt();
-                            if (idadeNinja > 0 && idadeNinja <= 150) {
-                                isValidaIdade = true;
-                                sc.nextLine();
-                            } else {
-                                System.out.println("❌ Erro: A idade deve estar entre 1 e 150 anos!");
-                            }
-                        } catch (Exception e) {
-                            System.out.println("❌ Erro: Digite um número válido para a idade!");
-                            sc.nextLine();
-                        }
+                    if (tipoCla < 0 || tipoCla >= CLA_NOMES.length) {
+                        System.out.println("❌ Opção inválida! Ninja não adicionado.");
+                        break;
                     }
 
-                    String missaoNinja;
-                    while(true){
-                        System.out.println("Digite a missão do ninja:");
-                        missaoNinja = sc.nextLine();
+                    String nomeNinja          = lerStringNaoVazia(sc, "Digite o nome do ninja:");
+                    int    idadeNinja         = lerIdade(sc);
+                    String missaoNinja        = lerStringNaoVazia(sc, "Digite a missão do ninja:");
+                    String nivelDificuldade   = lerStringNaoVazia(sc, "Digite o nível de dificuldade da missão:");
+                    String statusMissao       = lerStringNaoVazia(sc, "Digite o status da missão:");
 
-                        if (!missaoNinja.trim().isEmpty()) {
-                            break;
-                        }
-
-                        System.out.println("❌ Erro: A missão do ninja não pode ser vazia. Por favor, tente novamente.");
+                    Ninja ninja;
+                    if (tipoCla == 0) {
+                        ninja = new Ninja(nomeNinja, idadeNinja, missaoNinja, nivelDificuldade, statusMissao);
+                    } else {
+                        ninja = criarNinjaEspecial(sc, tipoCla, nomeNinja, idadeNinja, missaoNinja, nivelDificuldade, statusMissao);
                     }
-
-                    String nivelDificuldadeNinja = "";
-                    while (nivelDificuldadeNinja.trim().isEmpty()) {
-                        System.out.println("Digite o nível de dificuldade da missão:");
-                        nivelDificuldadeNinja = sc.nextLine();
-
-                        if (!nivelDificuldadeNinja.trim().isEmpty()) {
-                            break;
-                        }
-
-                        System.out.println("❌ Erro: O nível de dificuldade não pode ser vazio! Tente novamente.");
-                    }
-
-                    String statusMissaoNinja = "";
-                    while (statusMissaoNinja.trim().isEmpty()) {
-                        System.out.println("Digite o status da missão do ninja:");
-                        statusMissaoNinja = sc.nextLine();
-                        if (!statusMissaoNinja.trim().isEmpty()) {
-                            break;
-                        }
-
-                        System.out.println("❌ Erro: O status da missão não pode ser vazio! Tente novamente.");
-                    }
-
-                    Ninja ninja = new Ninja(nomeNinja, idadeNinja, missaoNinja, nivelDificuldadeNinja, statusMissaoNinja);
 
                     ninjas.add(ninja);
-                    System.out.println("Ninja adicionado com sucesso!");
+                    System.out.println("✅ Ninja adicionado com sucesso!");
                     break;
 
                 case 3:
@@ -120,74 +92,66 @@ public class Main {
                         break;
                     }
 
-                    for (int i = 0; i < ninjas.size(); i++){
-                        System.out.println((i + 1) + ". " + ninjas.get(i).nome);
-                    }
-
+                    listarNinjas(ninjas);
                     System.out.println("Digite o número do ninja que deseja remover:");
+                    int numeroRemover = lerInteiro(sc);
                     sc.nextLine();
-                    int numeroNinja = sc.nextInt();
 
-                    if (numeroNinja < 1 || numeroNinja > ninjas.size()) {
-                        System.out.println("Número inválido!");
+                    if (numeroRemover < 1 || numeroRemover > ninjas.size()) {
+                        System.out.println("❌ Número inválido!");
                         break;
                     }
 
-                    ninjas.remove(numeroNinja - 1);
-                    System.out.println("Ninja removido com sucesso!");
+                    ninjas.remove(numeroRemover - 1);
+                    System.out.println("✅ Ninja removido com sucesso!");
                     break;
 
                 case 4:
-                    System.out.println("Você selecionou a opção 4: Atualizar ninja");
+                    System.out.println("Você selecionou a opção 4: Atualizar habilidade especial de um ninja de clã");
                     System.out.println("--------------------------------------------");
 
                     if (ninjas.isEmpty()) {
-                        System.out.println("Nenhum ninja cadastrado para atualizar!");
+                        System.out.println("Nenhum ninja cadastrado!");
                         break;
                     }
 
+                    // Filtra apenas ninjas com habilidade especial
+                    ArrayList<Integer> indicesEspeciais = new ArrayList<>();
                     for (int i = 0; i < ninjas.size(); i++) {
-                        System.out.println((i + 1) + " - " + ninjas.get(i).nome);
+                        if (ninjas.get(i) instanceof Uchiha || ninjas.get(i) instanceof Hyuga) {
+                            // Adicione novos clãs aqui ↑
+                            indicesEspeciais.add(i);
+                        }
+                    }
+
+                    if (indicesEspeciais.isEmpty()) {
+                        System.out.println("Nenhum ninja de clã especial cadastrado!");
+                        break;
+                    }
+
+                    System.out.println("Ninjas com habilidade especial:");
+                    for (int i = 0; i < indicesEspeciais.size(); i++) {
+                        Ninja n = ninjas.get(indicesEspeciais.get(i));
+                        System.out.println((i + 1) + ". " + n.nome + " [" + nomeCla(n) + "]");
                     }
 
                     System.out.println("Digite o número do ninja que deseja atualizar:");
-                    int opcaoNinja = sc.nextInt();
+                    int opcaoEspecial = lerInteiro(sc);
                     sc.nextLine();
 
-                    int indice = opcaoNinja - 1;
-
-                    if (indice < 0 || indice >= ninjas.size()) {
-                        System.out.println("Número inválido!");
+                    if (opcaoEspecial < 1 || opcaoEspecial > indicesEspeciais.size()) {
+                        System.out.println("❌ Número inválido!");
                         break;
                     }
 
-                    System.out.println("Digite o novo nome:");
-                    String nome = sc.nextLine();
+                    int indiceReal = indicesEspeciais.get(opcaoEspecial - 1);
+                    Ninja alvo = ninjas.get(indiceReal);
 
-                    System.out.println("Digite a nova idade:");
-                    int idade = sc.nextInt();
-                    sc.nextLine();
+                    System.out.println("Habilidade atual: " + getHabilidade(alvo));
+                    String novaHabilidade = lerStringNaoVazia(sc, "Digite a nova habilidade especial:");
+                    setHabilidade(alvo, novaHabilidade);
 
-                    System.out.println("Digite a nova missão:");
-                    String missao = sc.nextLine();
-
-                    System.out.println("Digite o novo nível de dificuldade:");
-                    String nivelDificuldade = sc.nextLine();
-
-                    System.out.println("Digite o novo status da missão:");
-                    String statusMissao = sc.nextLine();
-
-                    Ninja ninjaNovo = new Ninja(
-                            nome,
-                            idade,
-                            missao,
-                            nivelDificuldade,
-                            statusMissao
-                    );
-
-                    ninjas.set(indice, ninjaNovo);
-
-                    System.out.println("Ninja atualizado com sucesso!");
+                    System.out.println("✅ Habilidade especial atualizada com sucesso!");
                     break;
 
                 case 5:
@@ -196,9 +160,96 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Opção inválida. Por favor, selecione uma opção válida.");
+                    System.out.println("❌ Opção inválida. Por favor, selecione uma opção válida.");
             }
         }
 
+        sc.close();
+    }
+
+    // ──────────────────────────────────────────────
+    // Fábrica de ninjas especiais — adicione novos clãs aqui
+    // ──────────────────────────────────────────────
+    private static Ninja criarNinjaEspecial(Scanner sc, int tipoCla,
+                                            String nome, int idade, String missao, String nivel, String status) {
+
+        String habilidade = lerStringNaoVazia(sc,
+                "Digite a habilidade especial do clã " + CLA_NOMES[tipoCla] + " (Kekkei Genkai):");
+
+        switch (tipoCla) {
+            case 1: return new Uchiha(nome, idade, missao, nivel, status, habilidade);
+            case 2: return new Hyuga(nome, idade, missao, nivel, status, habilidade);
+            // case 3: return new Senju(nome, idade, missao, nivel, status, habilidade);
+            default:
+                System.out.println("⚠️ Clã não implementado, criando ninja comum.");
+                return new Ninja(nome, idade, missao, nivel, status);
+        }
+    }
+
+    // ──────────────────────────────────────────────
+    // Helpers para acessar habilidadeEspecial sem casting repetido
+    // ──────────────────────────────────────────────
+    private static String getHabilidade(Ninja n) {
+        if (n instanceof Uchiha) return ((Uchiha) n).habilidadeEspecial;
+        if (n instanceof Hyuga)  return ((Hyuga)  n).habilidadeEspecial;
+        // Adicione novos clãs aqui ↑
+        return "";
+    }
+
+    private static void setHabilidade(Ninja n, String habilidade) {
+        if (n instanceof Uchiha) ((Uchiha) n).habilidadeEspecial = habilidade;
+        if (n instanceof Hyuga)  ((Hyuga)  n).habilidadeEspecial = habilidade;
+        // Adicione novos clãs aqui ↑
+    }
+
+    private static String nomeCla(Ninja n) {
+        if (n instanceof Uchiha) return "Uchiha";
+        if (n instanceof Hyuga)  return "Hyuga";
+        // Adicione novos clãs aqui ↑
+        return "Comum";
+    }
+
+    // ──────────────────────────────────────────────
+    // Utilitários de I/O
+    // ──────────────────────────────────────────────
+    private static void listarNinjas(ArrayList<Ninja> ninjas) {
+        for (int i = 0; i < ninjas.size(); i++) {
+            System.out.println((i + 1) + ". " + ninjas.get(i).nome + " [" + nomeCla(ninjas.get(i)) + "]");
+        }
+    }
+
+    private static String lerStringNaoVazia(Scanner sc, String mensagem) {
+        String valor = "";
+        while (valor.trim().isEmpty()) {
+            System.out.println(mensagem);
+            valor = sc.nextLine();
+            if (valor.trim().isEmpty()) {
+                System.out.println("❌ Erro: Este campo não pode ser vazio. Tente novamente.");
+            }
+        }
+        return valor;
+    }
+
+    private static int lerInteiro(Scanner sc) {
+        while (true) {
+            try {
+                return sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("❌ Erro: Digite um número válido!");
+                sc.nextLine();
+            }
+        }
+    }
+
+    private static int lerIdade(Scanner sc) {
+        while (true) {
+            System.out.println("Digite a idade do ninja:");
+            int idade = lerInteiro(sc);
+            if (idade > 0 && idade <= 150) {
+                sc.nextLine();
+                return idade;
+            }
+            System.out.println("❌ Erro: A idade deve estar entre 1 e 150 anos!");
+        }
     }
 }
