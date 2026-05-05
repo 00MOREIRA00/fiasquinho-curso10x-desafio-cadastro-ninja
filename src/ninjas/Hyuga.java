@@ -13,4 +13,12 @@ public class Hyuga extends Ninja {
         super.mostrarInformacoes();
         System.out.println("Habilidade Especial: " + habilidadeEspecial);
     }
+
+    public String getHabilidadeEspecial() {
+        return habilidadeEspecial;
+    }
+
+    public void setHabilidadeEspecial(String habilidadeEspecial) {
+        this.habilidadeEspecial = habilidadeEspecial;
+    }
 }
