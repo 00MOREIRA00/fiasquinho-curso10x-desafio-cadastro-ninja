@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import ninjas.*;
+import ninjas.Ninja;
+import ninjas.Uchirra;
+import ninjas.Hyuga;
+
 
 public class Main {
 

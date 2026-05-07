@@ -1,17 +1,18 @@
+
 package ninjas;
 
-public class Uchirra extends Ninja {
+public class Hyuga extends Ninja {
 
     private String habilidadeEspecial;
 
-    public Uchirra(String nome, int idade, String missao, String nivelDificuldade, String statusMissao, String habilidadeEspecial) {
+    public Hyuga(String nome, int idade, String missao, String nivelDificuldade, String statusMissao, String habilidadeEspecial) {
         super(nome, idade, missao, nivelDificuldade, statusMissao);
         this.habilidadeEspecial = habilidadeEspecial;
     }
 
     @Override
     public String getTipoCla() {
-        return "Uchirra";
+        return "Hyuga";
     }
 
     @Override
@@ -24,3 +25,4 @@ public class Uchirra extends Ninja {
         this.habilidadeEspecial = habilidadeEspecial;
     }
 }
+

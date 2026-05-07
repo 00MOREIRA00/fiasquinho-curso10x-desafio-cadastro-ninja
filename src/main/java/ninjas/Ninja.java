@@ -1,3 +1,4 @@
+
 package ninjas;
 
 public class Ninja {
@@ -62,3 +63,4 @@ public class Ninja {
         this.statusMissao = statusMissao;
     }
 }
+

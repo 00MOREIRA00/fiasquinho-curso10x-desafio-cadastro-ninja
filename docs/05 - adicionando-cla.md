@@ -2,7 +2,7 @@
 
 ## 📌 Visão Geral
 
-Este documento descreve o passo a passo para adicionar um novo clã ao sistema de gerenciamento de ninjas.
+Este documento descreve o passo a passo para adicionar um novo clã ao sistema de gerenciamento de main.java.ninjas.
 
 O sistema foi estruturado com herança e polimorfismo, permitindo adicionar novos clãs com poucas alterações.
 
@@ -23,7 +23,9 @@ Cada clã é representado por uma classe que:
 Exemplo: `Senju`
 
 ```java
-package ninjas;
+package main.java.ninjas;
+
+import java.ninjas.Ninja;
 
 public class Senju extends Ninja {
 
@@ -55,7 +57,7 @@ public class Senju extends Ninja {
 
 ## 🧩 Passo 2: Registrar o clã no menu
 
-No `Main.java`, adicione o novo clã na lista `CLA_NOMES`:
+No `java.Main.java`, adicione o novo clã na lista `CLA_NOMES`:
 
 ```java
 static final String[] CLA_NOMES = {
@@ -99,7 +101,7 @@ Após esses passos:
 
 ## ⚠️ Limitação Atual
 
-Ainda é necessário alterar o `Main.java` para registrar novos clãs manualmente.
+Ainda é necessário alterar o `java.Main.java` para registrar novos clãs manualmente.
 
 ---
 
