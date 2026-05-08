@@ -156,7 +156,7 @@ public class Main {
         System.out.println("\n[SUCESSO] Cadastro atualizado!");
     }
 
-    private static String lerStringNaoVazia(Scanner sc, String msg) {
+    public static String lerStringNaoVazia(Scanner sc, String msg) {
         String valor;
 
         do {
@@ -172,7 +172,7 @@ public class Main {
         return valor;
     }
 
-    private static int lerInteiro(Scanner sc, String msg) {
+    public static int lerInteiro(Scanner sc, String msg) {
         while (true) {
             try {
                 System.out.print(msg + " ");
@@ -183,7 +183,7 @@ public class Main {
         }
     }
 
-    private static int lerIdade(Scanner sc) {
+    public static int lerIdade(Scanner sc) {
         while (true) {
             int idade = lerInteiro(sc, "Idade:");
 
@@ -195,7 +195,7 @@ public class Main {
         }
     }
 
-    private static int lerOpcaoMenu(Scanner sc, int max) {
+    public static int lerOpcaoMenu(Scanner sc, int max) {
         while (true) {
             int op = lerInteiro(sc, "Escolha:");
 
@@ -207,7 +207,7 @@ public class Main {
         }
     }
 
-    private static int lerOpcaoIntervalo(Scanner sc, int min, int max) {
+    public static int lerOpcaoIntervalo(Scanner sc, int min, int max) {
         while (true) {
             int op = lerInteiro(sc, "Escolha:");
 

@@ -1,4 +1,3 @@
-
 package ninjas;
 
 public class Ninja {
@@ -39,10 +38,6 @@ public class Ninja {
         System.out.println("Habilidade Especial: " + getHabilidadeEspecial());
     }
 
-    public String getNome() {
-        return nome;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -62,5 +57,24 @@ public class Ninja {
     public void setStatusMissao(String statusMissao) {
         this.statusMissao = statusMissao;
     }
-}
 
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public String getMissao() {
+        return missao;
+    }
+
+    public String getNivelDificuldade() {
+        return nivelDificuldade;
+    }
+
+    public String getStatusMissao() {
+        return statusMissao;
+    }
+}
