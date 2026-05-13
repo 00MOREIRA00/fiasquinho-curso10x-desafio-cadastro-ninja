@@ -2,13 +2,13 @@
 
 ## 📌 Visão Geral
 
-Este documento descreve como o usuário interage com o sistema de gerenciamento de main.java.ninjas.
+Este documento descreve como o usuário interage com o sistema de gerenciamento de ninjas.
 
 O sistema permite:
 
-- Cadastrar main.java.ninjas
-- Listar main.java.ninjas
-- Atualizar informações de main.java.ninjas
+- Cadastrar ninjas
+- Listar ninjas
+- Atualizar informações de ninjas
 
 ---
 
@@ -47,16 +47,16 @@ Ninja cadastrado com sucesso
 ## 📄 Caso de Uso 2: Listar Ninjas
 
 ### Descrição
-Permite visualizar todos os main.java.ninjas cadastrados.
+Permite visualizar todos os ninjas cadastrados.
 
 ### Fluxo principal
 
-1. Usuário seleciona a opção "Listar main.java.ninjas"
-2. Sistema percorre a lista de main.java.ninjas
+1. Usuário seleciona a opção "Listar ninjas"
+2. Sistema percorre a lista de ninjas
 3. Sistema exibe as informações de cada ninja
 
 ### Resultado esperado
-Lista de main.java.ninjas exibida no terminal
+Lista de ninjas exibida no terminal
 
 ---
 
@@ -68,7 +68,7 @@ Permite atualizar os dados de um ninja existente.
 ### Fluxo principal
 
 1. Usuário seleciona a opção "Atualizar ninja"
-2. Sistema exibe a lista de main.java.ninjas
+2. Sistema exibe a lista de ninjas
 3. Usuário escolhe um ninja
 4. Sistema solicita novos dados:
     - Nome

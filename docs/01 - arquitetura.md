@@ -2,14 +2,14 @@
 
 ## 📌 Visão Geral
 
-Este projeto é um sistema de gerenciamento de main.java.ninjas desenvolvido em Java, com foco em:
+Este projeto é um sistema de gerenciamento de ninjas desenvolvido em Java, com foco em:
 
 - Programação orientada a objetos (POO)
 - Uso de herança
 - Aplicação de polimorfismo
 - Organização por pacotes
 
-O sistema permite cadastrar, listar e atualizar main.java.ninjas, incluindo diferentes clãs com habilidades específicas.
+O sistema permite cadastrar, listar e atualizar ninjas, incluindo diferentes clãs com habilidades específicas.
 
 ---
 
@@ -17,11 +17,13 @@ O sistema permite cadastrar, listar e atualizar main.java.ninjas, incluindo dife
 
 ````
 src/
-├── main.java.ninjas/
-│ ├── Ninja.java
-│ ├── Uchirra.java
-│ └── Hyuga.java
-└── java.Main.java
+└── main/
+    └── java/
+        ├── ninjas/
+        │   ├── Ninja.java
+        │   ├── Uchirra.java
+        │   └── Hyuga.java
+        └── Main.java
 ````
 
 ---
@@ -31,7 +33,7 @@ src/
 
 ## 🧱 Organização por Pacotes
 
-### `package main.java.ninjas`
+### `package ninjas`
 
 Contém todas as classes de domínio do sistema:
 
@@ -107,14 +109,14 @@ Cada classe implementa seu próprio comportamento, eliminando a necessidade de:
 
 ---
 
-## 🎯 Papel do java.Main
+## 🎯 Papel do Main
 
-A classe `java.Main` é responsável por:
+A classe `Main` é responsável por:
 
 - Controle do fluxo do sistema
 - Exibição de menus
 - Entrada de dados do usuário
-- Gerenciamento da lista de main.java.ninjas
+- Gerenciamento da lista de ninjas
 
 ---
 
@@ -143,7 +145,7 @@ O sistema foi projetado para facilitar a adição de novos clãs.
 
 ## ⚠️ Limitações atuais
 
-- Uso de `if` no `java.Main` para criação de classes
+- Uso de `if` no `Main` para criação de classes
 - Não possui persistência de dados
 - Interface apenas via terminal
 

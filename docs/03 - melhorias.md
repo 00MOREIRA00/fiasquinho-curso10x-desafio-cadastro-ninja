@@ -10,11 +10,11 @@ Este documento lista possíveis melhorias e evoluções para o sistema, visando 
 
 ### 🔹 Aplicar Factory Pattern
 
-Atualmente, a criação de main.java.ninjas no `java.Main` utiliza `if` para decidir qual classe instanciar.
+Atualmente, a criação de ninjas no `Main` utiliza `if` para decidir qual classe instanciar.
 
 **Problema:**
 - Código não escalável
-- Necessário modificar o `java.Main` ao adicionar novos clãs
+- Necessário modificar o `Main` ao adicionar novos clãs
 
 **Melhoria:**
 - Criar uma classe `NinjaFactory`
@@ -40,7 +40,7 @@ Substituir o uso de índices (`int`) por um `enum`.
 Atualmente os dados são armazenados apenas em memória.
 
 **Melhoria:**
-- Salvar main.java.ninjas em arquivo (`.txt` ou `.json`)
+- Salvar ninjas em arquivo (`.txt` ou `.json`)
 - Carregar dados ao iniciar o sistema
 
 ---
@@ -83,7 +83,7 @@ Adicionar test com:
 
 Cobrir:
 
-- Criação de main.java.ninjas
+- Criação de ninjas
 - Atualização de dados
 - Validações
 
@@ -108,7 +108,7 @@ Buscar por:
 
 ### 🔹 Ordenação
 
-Ordenar lista de main.java.ninjas por:
+Ordenar lista de ninjas por:
 
 - Nome
 - Idade
@@ -138,7 +138,7 @@ Dividir o sistema em camadas:
 
 ---
 
-### 🔹 Eliminar lógica do java.Main
+### 🔹 Eliminar lógica do Main
 
 Mover lógica para classes específicas:
 

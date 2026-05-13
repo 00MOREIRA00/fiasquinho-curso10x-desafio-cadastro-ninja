@@ -4,7 +4,7 @@
 
 Este documento descreve as principais classes do sistema, seus atributos, métodos e responsabilidades.
 
-O sistema utiliza herança e polimorfismo para representar diferentes tipos de main.java.ninjas.
+O sistema utiliza herança e polimorfismo para representar diferentes tipos de ninjas.
 
 ---
 
@@ -105,13 +105,13 @@ Todas as classes podem ser tratadas como Ninja.
 
 Exemplo:
 
-ArrayList<Ninja> main.java.ninjas = new ArrayList<>();
+ArrayList<Ninja> ninjas = new ArrayList<>();
 
-Isso permite armazenar diferentes tipos de main.java.ninjas na mesma lista:
+Isso permite armazenar diferentes tipos de ninjas na mesma lista:
 
-main.java.ninjas.add(new Ninja(...));
-main.java.ninjas.add(new Uchirra(...));
-main.java.ninjas.add(new Hyuga(...));
+ninjas.add(new Ninja(...));
+ninjas.add(new Uchirra(...));
+ninjas.add(new Hyuga(...));
 
 Mesmo sendo tratados como Ninja, cada objeto executa seu próprio comportamento quando métodos sobrescritos são chamados.
 

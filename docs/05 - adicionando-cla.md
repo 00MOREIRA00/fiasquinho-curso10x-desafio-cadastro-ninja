@@ -23,9 +23,9 @@ Cada clã é representado por uma classe que:
 Exemplo: `Senju`
 
 ```java
-package main.java.ninjas;
+package ninjas;
 
-import java.ninjas.Ninja;
+import ninjas.Ninja;
 
 public class Senju extends Ninja {
 
@@ -57,7 +57,7 @@ public class Senju extends Ninja {
 
 ## 🧩 Passo 2: Registrar o clã no menu
 
-No `java.Main.java`, adicione o novo clã na lista `CLA_NOMES`:
+No `Main.java`, adicione o novo clã na lista `CLA_NOMES`:
 
 ```java
 static final String[] CLA_NOMES = {
@@ -101,7 +101,7 @@ Após esses passos:
 
 ## ⚠️ Limitação Atual
 
-Ainda é necessário alterar o `java.Main.java` para registrar novos clãs manualmente.
+Ainda é necessário alterar o `Main.java` para registrar novos clãs manualmente.
 
 ---
 
